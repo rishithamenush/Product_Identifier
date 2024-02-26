@@ -35,6 +35,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   File? filePath;
+  String label = '';
+  double confidence = 0.0;
   Future<void> _tfLteInit() async {
     String? res = await Tflite.loadModel(
         model: "assets/model_unquant.tflite",
@@ -70,6 +72,11 @@ class _MyHomePageState extends State<MyHomePage> {
       devtools.log("recognition is Null ");
     }
     devtools.log(recognitions.toString());
+    setState(() {
+      confidence = (recognitions?[0]['confidence'] * 100);
+
+      label = recognitions![0]['label'].toString();
+    });
   }
 
   @override
@@ -139,13 +146,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         const SizedBox(
                           height: 10,
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Column(
                             children: [
                               Text(
-                                "Product Name:",
-                                style: TextStyle(
+                                label,
+                                style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -154,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 12,
                               ),
                               Text(
-                                "Identifier Accuracy: ",
+                                "Identifier Accuracy:  ${confidence.toStringAsFixed(0)}",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,

@@ -1,4 +1,4 @@
-0 Chocolate Cream 
-1 Cream Cracker
-2 Hawaian Cookies
-3 Lemon Puff
+Chocolate Cream 
+Cream Cracker
+Hawaian Cookies
+Lemon Puff
