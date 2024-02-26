@@ -79,6 +79,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         const Padding(
                           padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Label01",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
