@@ -49,18 +49,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        SizedBox(
-                          height: 18,
+                        const SizedBox(
+                          height: 20,
                         ),
                         Container(
                           height: 250,
                           width: 250,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              image: const DecorationImage(
-                                  image: AssetImage('assets/_capture.png'))),
-                        )
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            image: const DecorationImage(
+                              image: AssetImage('assets/_capture.png'),
+                            ),
+                          ),
+                          child: const Text(''),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                        ),
                       ],
                     ),
                   ),
