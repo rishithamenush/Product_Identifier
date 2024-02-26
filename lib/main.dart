@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: [
                               Text(
-                                "Label01",
+                                "Product Name",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -119,9 +119,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
-                  foregroundColor: Color.fromARGB(255, 0, 0, 0),
+                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                 ),
                 child: const Text("Capture Product"),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                ),
+                child: const Text("Pick From the Gallery"),
               ),
             ],
           ),
