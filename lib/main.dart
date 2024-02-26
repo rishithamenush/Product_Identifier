@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            "SuperMarket Product Identifier",
+            "Product Identifier",
             style: TextStyle(
               color: Color.fromARGB(255, 0, 0, 0),
               fontWeight: FontWeight.bold,
@@ -119,6 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
+                  foregroundColor: Color.fromARGB(255, 0, 0, 0),
                 ),
                 child: const Text("Capture Product"),
               ),
