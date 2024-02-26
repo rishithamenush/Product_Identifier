@@ -84,8 +84,23 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text(
                                 "Label01",
                                 style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
-                              )
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              Text(
+                                "Identifier Accuracy: ",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
                             ],
                           ),
                         ),
@@ -93,7 +108,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                ),
+                child: const Text("Capture Product"),
+              ),
             ],
           ),
         ),
