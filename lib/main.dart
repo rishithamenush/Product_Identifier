@@ -79,6 +79,36 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  pickImageCamera() async {
+    final ImagePicker picker = ImagePicker();
+// Pick an image.
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+    if (image == null) return;
+    var imageMap = File(image.path);
+
+    setState(() {
+      filePath = imageMap;
+    });
+    var recognitions = await Tflite.runModelOnImage(
+        path: image.path, // required
+        imageMean: 0.0, // defaults to 117.0
+        imageStd: 255.0, // defaults to 1.0
+        numResults: 2, // defaults to 5
+        threshold: 0.2, // defaults to 0.1
+        asynch: true // defaults to true
+        );
+
+    if (recognitions == null) {
+      devtools.log("recognition is Null ");
+    }
+    devtools.log(recognitions.toString());
+    setState(() {
+      confidence = (recognitions?[0]['confidence'] * 100);
+
+      label = recognitions![0]['label'].toString();
+    });
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -182,7 +212,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 10,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  pickImageCamera();
+                },
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
