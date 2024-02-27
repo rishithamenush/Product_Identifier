@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:developer' as devtools;
 
@@ -106,13 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 154, 162, 248),
-        title: const Center(
+        title: Center(
           child: Text(
-            "Product Identifier",
-            style: TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0),
+            'Product Identifier',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 40,
               fontWeight: FontWeight.bold,
-              fontSize: 25,
             ),
           ),
         ),

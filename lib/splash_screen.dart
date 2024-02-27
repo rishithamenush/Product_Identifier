@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:product_identifier/home_page.dart'; // Make sure this import is correct
 
@@ -17,19 +18,18 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          // Logo Text "Product Identifier"
           Positioned(
-            top: 100, // Adjust based on your layout
+            top: 120,
             child: Text(
-              'Product Identifier',
-              style: TextStyle(
-                color: Colors.white, // Choose a color that fits the background
-                fontSize: 40, // Adjust font size as needed
+              'Product\nIdentifier',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 60,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-
           Center(
             child: Lottie.network(
                 'https://lottie.host/26aabf37-daf6-4161-aa7a-9aa990a552d8/KiaWLbthWL.json'),
@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
-                  foregroundColor: Color.fromARGB(255, 0, 0, 0),
+                  foregroundColor: Color.fromARGB(255, 94, 105, 230),
                 ),
                 child: const Text(
                   "Get Started",
