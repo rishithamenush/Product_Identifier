@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:product_identifier/home_page.dart'; // Make sure this import is correct
 
 class SplashScreen extends StatefulWidget {
@@ -16,34 +17,48 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Center(
-            child: Image.asset(
-              'assets/finder.png',
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.fitWidth,
+          // Logo Text "Product Identifier"
+          Positioned(
+            top: 100, // Adjust based on your layout
+            child: Text(
+              'Product Identifier',
+              style: TextStyle(
+                color: Colors.white, // Choose a color that fits the background
+                fontSize: 40, // Adjust font size as needed
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
+
+          Center(
+            child: Lottie.network(
+                'https://lottie.host/26aabf37-daf6-4161-aa7a-9aa990a552d8/KiaWLbthWL.json'),
+          ),
           Positioned(
-            bottom: 50, // Adjust the value to change the gap
+            bottom: 50,
             child: Padding(
-              padding: const EdgeInsets.only(
-                  bottom: 50), // This adds padding specifically at the bottom
+              padding: const EdgeInsets.only(bottom: 50),
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigate to MyHomePage
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => const MyHomePage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                      const EdgeInsets.symmetric(horizontal: 70, vertical: 15),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                  foregroundColor: Color.fromARGB(255, 0, 0, 0),
                 ),
-                child: const Text("Get Started"),
+                child: const Text(
+                  "Get Started",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
           ),

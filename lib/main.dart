@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'ProductIdentifier',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color.fromARGB(255, 154, 162, 248),
+        ),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

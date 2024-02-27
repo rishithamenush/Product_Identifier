@@ -128,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Card(
                 elevation: 20,
                 clipBehavior: Clip.hardEdge,
+                color: Color.fromARGB(128, 161, 167, 243),
                 child: SizedBox(
                   width: 300,
                   child: SingleChildScrollView(
@@ -171,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 12,
                               ),
                               Text(
-                                "Identifier Accuracy:  ${confidence.toStringAsFixed(0)}",
+                                "Accuracy:  ${confidence.toStringAsFixed(0)}",
                                 style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -189,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               ElevatedButton(
                 onPressed: () {
