@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Positioned(
             top: 120,
             child: Text(
-              'Product\nIdentifier',
+              'PRODUCT\nIDENTIFIER',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 color: Colors.white,

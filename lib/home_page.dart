@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:developer' as devtools;
 
@@ -107,17 +108,32 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 154, 162, 248),
+        elevation: 0,
         title: Center(
           child: Text(
-            'Product Identifier',
+            'PRODUCT IDENTIFIER',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 40,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
+        leading: IconButton(
+          color: Colors.white,
+          onPressed: () {
+            //open menu
+          },
+          icon: Icon(Icons.menu),
+        ),
+        actions: [
+          IconButton(
+            color: Colors.white,
+            onPressed: () {},
+            icon: Icon(Icons.person),
+          ),
+        ],
       ),
       backgroundColor: Color.fromARGB(255, 154, 162, 248),
       body: SingleChildScrollView(
@@ -229,6 +245,31 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: const GNav(
+        backgroundColor: Color.fromARGB(169, 129, 136, 209),
+        color: Colors.white,
+        tabBackgroundColor: Color.fromARGB(255, 116, 122, 188),
+        tabs: [
+          GButton(
+            gap: 8,
+            padding: EdgeInsets.all(16),
+            icon: Icons.home,
+            text: 'Home',
+          ),
+          GButton(
+            icon: Icons.search_rounded,
+            text: 'search',
+          ),
+          GButton(
+            icon: Icons.add_shopping_cart,
+            text: 'Cart',
+          ),
+          GButton(
+            icon: Icons.settings,
+            text: 'settings',
+          ),
+        ],
       ),
     );
   }
