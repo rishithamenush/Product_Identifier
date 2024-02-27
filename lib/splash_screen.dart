@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
         alignment: Alignment.center,
         children: [
           Positioned(
-            top: 120,
+            top: 80,
             child: Text(
               'PRODUCT\nIDENTIFIER',
               textAlign: TextAlign.center,

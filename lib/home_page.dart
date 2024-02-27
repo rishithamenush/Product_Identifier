@@ -162,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: Color.fromARGB(133, 255, 255, 255),
                             borderRadius: BorderRadius.circular(12),
                             image: const DecorationImage(
-                              image: AssetImage('assets/_capture.png'),
+                              image: AssetImage('assets/search.png'),
                             ),
                           ),
                           child: filePath == null
