@@ -7,8 +7,6 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:developer' as devtools;
 
-import 'package:product_identifier/splash_screen.dart';
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -182,18 +180,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text(
                                 label,
                                 style: const TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 28,
                                   fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 12,
-                              ),
-                              Text(
-                                "Accuracy:  ${confidence.toStringAsFixed(0)}",
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
                               const SizedBox(
