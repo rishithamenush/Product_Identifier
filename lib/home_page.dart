@@ -105,6 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 154, 162, 248),
         title: const Center(
           child: Text(
             "Product Identifier",
@@ -116,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      backgroundColor: Color.fromARGB(255, 154, 162, 248),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -138,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 250,
                           width: 250,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color.fromARGB(133, 255, 255, 255),
                             borderRadius: BorderRadius.circular(12),
                             image: const DecorationImage(
                               image: AssetImage('assets/_capture.png'),
@@ -220,20 +222,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               const SizedBox(
                 height: 10,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => SplashScreen()));
-                },
-                style: ElevatedButton.styleFrom(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-                ),
-                child: const Text("Go to next page"),
               ),
             ],
           ),
