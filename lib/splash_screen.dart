@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:product_identifier/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,8 +30,12 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Center(
-            child: Lottie.network(
-                'https://lottie.host/26aabf37-daf6-4161-aa7a-9aa990a552d8/KiaWLbthWL.json'),
+            child: Image.asset(
+              'assets/search.png',
+              width: 300,
+              height: 300,
+              fit: BoxFit.cover,
+            ),
           ),
           Positioned(
             bottom: 50,
