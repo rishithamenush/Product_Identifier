@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:product_identifier/home_page.dart'; // Make sure this import is correct
+import 'package:product_identifier/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -7,6 +7,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:developer' as devtools;
 
+import 'package:product_identifier/quiz_screen.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -105,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 154, 162, 248),
+        backgroundColor: const Color.fromARGB(255, 154, 162, 248),
         elevation: 0,
         title: Center(
           child: Text(
@@ -123,17 +125,17 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             //open menu
           },
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
         ),
         actions: [
           IconButton(
             color: Colors.white,
             onPressed: () {},
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
           ),
         ],
       ),
-      backgroundColor: Color.fromARGB(255, 154, 162, 248),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -144,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Card(
                 elevation: 20,
                 clipBehavior: Clip.hardEdge,
-                color: Color.fromARGB(128, 161, 167, 243),
+                color: const Color.fromARGB(128, 161, 167, 243),
                 child: SizedBox(
                   width: 300,
                   child: SingleChildScrollView(
@@ -157,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 250,
                           width: 250,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(133, 255, 255, 255),
+                            color: const Color.fromARGB(133, 255, 255, 255),
                             borderRadius: BorderRadius.circular(12),
                             image: const DecorationImage(
                               image: AssetImage('assets/search.png'),
@@ -174,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 10,
                         ),
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
                               Text(
@@ -207,29 +209,46 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(10)),
+                  foregroundColor: const Color.fromARGB(255, 121, 131, 246),
                 ),
                 child: const Text("Capture Product"),
               ),
               const SizedBox(
                 height: 10,
               ),
+              //Check  out the product using Gallery Image (Find out the reliability)
+              // ElevatedButton(
+              //   onPressed: () {
+              //     pickImageGallery();
+              //   },
+              //   style: ElevatedButton.styleFrom(
+              //     padding:
+              //         const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              //     shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(15)),
+              //     foregroundColor: const Color.fromARGB(255, 121, 131, 246),
+              //   ),
+              //   child: const Text("Pick From the Gallery"),
+              // ),
+              const SizedBox(
+                height: 30,
+              ),
+
               ElevatedButton(
                 onPressed: () {
-                  pickImageGallery();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const QuizScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(10)),
+                  foregroundColor: const Color.fromARGB(255, 121, 131, 246),
                 ),
-                child: const Text("Pick From the Gallery"),
-              ),
-              const SizedBox(
-                height: 10,
+                child: const Text("Go to Questionnaire"),
               ),
             ],
           ),
