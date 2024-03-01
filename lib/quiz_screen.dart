@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:product_identifier/home_page.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({Key? key}) : super(key: key);
@@ -10,25 +11,40 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  Map<int, int> selectedAnswers = {};
+  int? selectedAnswerIndex;
+  int questionIndex = 0;
 
-  void pickAnswer(int questionIndex, int answerIndex) {
+  void pickAnswer(int value) {
     setState(() {
-      selectedAnswers[questionIndex] = answerIndex;
+      selectedAnswerIndex = value;
+    });
+  }
+
+  void goToNextQuestion() {
+    if (questionIndex < questions.length - 1) {
+      questionIndex++;
+    } else {}
+    setState(() {
+      selectedAnswerIndex = null;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final question = questions[questionIndex];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 154, 162, 248),
-        title: Text(
-          'PRODUCT IDENTIFIER',
-          style: GoogleFonts.poppins(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            'PRODUCT IDENTIFIER',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         leading: IconButton(
@@ -44,55 +60,69 @@ class _QuizScreenState extends State<QuizScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: EdgeInsets.all(24.0),
         child: Column(
-          children: questions.asMap().entries.map((entry) {
-            int qIndex = entry.key;
-            Question question = entry.value;
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  question.question,
-                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-                ),
-                ...question.options.asMap().entries.map((optionEntry) {
-                  int optionIndex = optionEntry.key;
-                  String option = optionEntry.value;
-                  return GestureDetector(
-                    onTap: () => pickAnswer(qIndex, optionIndex),
-                    child: AnswerCard(
-                      index: optionIndex,
-                      text: option,
-                      isSelected: selectedAnswers[qIndex] == optionIndex,
-                    ),
-                  );
-                }).toList(),
-                SizedBox(height: 20),
-              ],
-            );
-          }).toList(),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              question.question,
+              style: TextStyle(fontSize: 21),
+              textAlign: TextAlign.center,
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: question.options.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () => pickAnswer(index),
+                  child: AnswerCard(
+                    index: index,
+                    text: question.options[index],
+                    isSelected: selectedAnswerIndex == index,
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+              onPressed: goToNextQuestion,
+              style: ElevatedButton.styleFrom(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                foregroundColor: const Color.fromARGB(255, 121, 131, 246),
+              ),
+              child: Text(
+                  questionIndex < questions.length - 1 ? 'Next' : 'Submit'),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: GNav(
-        backgroundColor: Color.fromARGB(255, 116, 122, 188),
+        backgroundColor: Color.fromARGB(169, 129, 136, 209),
         color: Colors.white,
-        activeColor: Colors.white,
-        tabBackgroundColor: Color.fromARGB(255, 154, 162, 248),
-        gap: 8,
-        padding: EdgeInsets.all(16),
+        tabBackgroundColor: Color.fromARGB(255, 116, 122, 188),
+        onTabChange: (index) {
+          if (index == 0) {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const MyHomePage()));
+          }
+          // Handle other tabs if necessary
+        },
         tabs: const [
           GButton(
+            gap: 8,
+            padding: EdgeInsets.all(16),
             icon: Icons.home,
             text: 'Home',
           ),
           GButton(
-            icon: Icons.search,
+            icon: Icons.search_rounded,
             text: 'Search',
           ),
           GButton(
-            icon: Icons.shopping_cart,
+            icon: Icons.add_shopping_cart,
             text: 'Cart',
           ),
           GButton(
@@ -124,8 +154,7 @@ class AnswerCard extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Text(text,
-            style: TextStyle(
-                color: isSelected ? Colors.white : null, fontSize: 16)),
+            style: TextStyle(color: isSelected ? Colors.white : null)),
       ),
     );
   }
@@ -144,27 +173,16 @@ class Question {
 const List<Question> questions = [
   Question(
     question: 'Is the Identify Product correct?',
-    options: ['Yes', 'No'],
+    options: [
+      'Yes',
+      'No',
+    ],
   ),
   Question(
     question: 'Is the Identify Product Color correct?',
-    options: ['Yes', 'No'],
+    options: [
+      'Yes',
+      'No',
+    ],
   ),
-  Question(
-    question: 'Is the Identify Product correct?',
-    options: ['Yes', 'No'],
-  ),
-  Question(
-    question: 'Is the Identify Product Color correct?',
-    options: ['Yes', 'No'],
-  ),
-  Question(
-    question: 'Is the Identify Product correct?',
-    options: ['Yes', 'No'],
-  ),
-  Question(
-    question: 'Is the Identify Product Color correct?',
-    options: ['Yes', 'No'],
-  ),
-  // Add more questions as needed
 ];
