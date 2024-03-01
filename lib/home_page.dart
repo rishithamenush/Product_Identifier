@@ -91,14 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     Tflite.close();
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tfLteInit();
   }
@@ -218,19 +216,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 10,
               ),
               //Check  out the product using Gallery Image (Find out the reliability)
-              // ElevatedButton(
-              //   onPressed: () {
-              //     pickImageGallery();
-              //   },
-              //   style: ElevatedButton.styleFrom(
-              //     padding:
-              //         const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              //     shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(15)),
-              //     foregroundColor: const Color.fromARGB(255, 121, 131, 246),
-              //   ),
-              //   child: const Text("Pick From the Gallery"),
-              // ),
+              ElevatedButton(
+                onPressed: () {
+                  pickImageGallery();
+                },
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  foregroundColor: const Color.fromARGB(255, 121, 131, 246),
+                ),
+                child: const Text("Pick From the Gallery"),
+              ),
               const SizedBox(
                 height: 30,
               ),
